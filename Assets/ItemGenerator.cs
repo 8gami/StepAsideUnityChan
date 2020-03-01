@@ -19,10 +19,10 @@ public class ItemGenerator : MonoBehaviour
     //アイテムを出すx方向の範囲
     private float posRange = 3.4f;
 
-    //【追加】ユニティちゃんのオブジェクト
-    private GameObject unitychan;
-    //【追加】ユニティちゃんのz座標をいれる
-    public float unitychanZ;
+    //【備忘録用】ユニティちゃんのオブジェクト
+    // private GameObject unitychan;
+    //【備忘録用】ユニティちゃんのz座標をいれる
+    // public float unitychanZ;
 
     //【追加】car用のListの変数を宣言。
     public List<GameObject> carList = new List<GameObject>();
@@ -30,6 +30,11 @@ public class ItemGenerator : MonoBehaviour
     public List<GameObject> coinList = new List<GameObject>();
     //【追加】cone用のListの変数を宣言。
     public List<GameObject> coneList = new List<GameObject>();
+
+    //【追加】カメラのオブジェクト
+    private GameObject maincamera;
+    //【追加】カメラのz座標をいれる。
+    public float maincameraZ;
 
 
     // Use this for initialization
@@ -87,37 +92,47 @@ public class ItemGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //【追加】ユニティちゃんのZ座標を取得
-        this.unitychan = GameObject.Find("unitychan");
-        unitychanZ = unitychan.transform.position.z;
-        OnBecameInvisible();
+        //【備忘録】ユニティちゃんのZ座標を取得
+        // this.unitychan = GameObject.Find("unitychan");
+        // unitychanZ = unitychan.transform.position.z;
+
+        //【追加】カメラのZ座標を取得
+        this.maincamera = GameObject.Find("Main Camera");
+        maincameraZ = maincamera.transform.position.z;
+
+        //【追加】オブジェクトが画面外かどうかを判定する関数
+        OffScreen();
     }
 
-    //【追加】カメラに写ってない時に呼ばれる関数
-    void OnBecameInvisible()
+    //【追加】画面外かどうかを判定する関数の中身
+    void OffScreen()
     {
         //車の破壊処理
         for(int i = 0; i < carList.Count; i++)
         {
-            //【追加】既に削除したゲームオブジェクトを参照しているかどうかのnullチェックを行う。
+            //【追加】既に削除したゲームオブジェクトを参照しているかどうかのnullチェックを行う
             if (carList[i] != null)
             {
                 //【追加】もしユニティちゃんよりオブジェクトのZ軸が小さい場合
-                if (unitychanZ >carList[i].transform.position.z)
+                if (maincameraZ > carList[i].transform.position.z)
                 {
                    GameObject.Destroy(carList[i]);
                 }
-
+            }
+            //【追加】nullになったオブジェクトの中身をRemoveする処理（3月5日のメンタリング用として追加しました。）
+            else if (carList[i] = null)
+            {
+                carList.RemoveAt(i);
             }
         }
         //コインの破壊処理
         for (int j = 0; j < coinList.Count; j++)
         {
-            //【追加】既に削除したゲームオブジェクトを参照しているかどうかのnullチェックを行う。
+            //【追加】既に削除したゲームオブジェクトを参照しているかどうかのnullチェックを行う
             if (coinList[j] != null)
             {
                 //【追加】もしユニティちゃんよりオブジェクトのZ軸が小さい場合
-                if (unitychanZ > coinList[j].transform.position.z)
+                if (maincameraZ > coinList[j].transform.position.z)
                 {
                     GameObject.Destroy(coinList[j]);
                 }
@@ -127,11 +142,11 @@ public class ItemGenerator : MonoBehaviour
         //コーンの破壊処理
         for (int k = 0; k < coneList.Count; k++)
         {
-            //【追加】既に削除したゲームオブジェクトを参照しているかどうかのnullチェックを行う。
+            //【追加】既に削除したゲームオブジェクトを参照しているかどうかのnullチェックを行う
             if (coneList[k] != null)
             {
                 //【追加】もしユニティちゃんよりオブジェクトのZ軸が小さい場合
-                if (unitychanZ > coneList[k].transform.position.z)
+                if (maincameraZ > coneList[k].transform.position.z)
                 {
                     GameObject.Destroy(coneList[k]);
                 }
