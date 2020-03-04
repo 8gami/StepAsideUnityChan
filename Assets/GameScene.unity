@@ -1532,7 +1532,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1653397632
+  randomSeed: 1823531996
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -5043,6 +5043,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1796405892}
   - component: {fileID: 1796405891}
+  - component: {fileID: 1796405893}
   m_Layer: 0
   m_Name: ItemGenerator
   m_TagString: Untagged
@@ -5056,7 +5057,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1796405890}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ebb910bc9a700a34490820f1910e485c, type: 3}
   m_Name: 
@@ -5064,6 +5065,10 @@ MonoBehaviour:
   carPrefab: {fileID: 1649269057141216, guid: 2da25202069aa7f4fa268d199590c63a, type: 2}
   coinPrefab: {fileID: 1488012779699186, guid: 059e99a4f1f5305499d85d006cc7a444, type: 2}
   conePrefab: {fileID: 1697408357130458, guid: 368ef504d1eb8ee4681cd8d923802489, type: 2}
+  carList: []
+  coinList: []
+  coneList: []
+  maincameraZ: 0
 --- !u!4 &1796405892
 Transform:
   m_ObjectHideFlags: 0
@@ -5077,3 +5082,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1796405893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1796405890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cae15226a97c46040b773805e5c8f7ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carPrefab: {fileID: 1649269057141216, guid: 2da25202069aa7f4fa268d199590c63a, type: 2}
+  coinPrefab: {fileID: 1488012779699186, guid: 059e99a4f1f5305499d85d006cc7a444, type: 2}
+  conePrefab: {fileID: 1697408357130458, guid: 368ef504d1eb8ee4681cd8d923802489, type: 2}
+  unitychanZ: 0
+  Z: 0
+  startunitychanZ: 0
+  carList: []
+  coinList: []
+  coneList: []
+  maincameraZ: 0
