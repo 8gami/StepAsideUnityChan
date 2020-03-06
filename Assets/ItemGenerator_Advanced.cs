@@ -56,7 +56,7 @@ public class ItemGenerator_Advanced : MonoBehaviour
         this.unitychan = GameObject.Find("unitychan");
         unitychanZ = unitychan.transform.position.z;
 
-        //【発展・追加】Unityちゃんがz軸に15動く度にアイテムを生成する。
+        //【発展・追加】Unityちゃんがz軸に45動く度にアイテムを生成する。
         if(unitychanZ >= startunitychanZ + 45 && goalPos-45 > startunitychanZ + 45)
         {
             appear(45);
