@@ -57,11 +57,11 @@ public class ItemGenerator_Advanced : MonoBehaviour
         unitychanZ = unitychan.transform.position.z;
 
         //【発展・追加】Unityちゃんがz軸に15動く度にアイテムを生成する。
-        if(unitychanZ >= startunitychanZ + 15 && goalPos-15 > startunitychanZ + 15)
+        if(unitychanZ >= startunitychanZ + 45 && goalPos-45 > startunitychanZ + 45)
         {
-            appear(15);
+            appear(45);
             //アイテムを生成した際のUnityちゃんの座標を更新する
-            startunitychanZ += 15;
+            startunitychanZ += 45;
         }
 
         //【追加】カメラのZ座標を取得
